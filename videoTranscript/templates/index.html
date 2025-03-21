@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>YouTube Audio Downloader & Compressor</title>
+</head>
+<body>
+    <h1>🎵 YouTube Audio Downloader & Compressor</h1>
+
+    <form method="POST">
+        <label for="url">Enter YouTube Video URL:</label>
+        <input type="text" name="url" id="url" required>
+        <button type="submit">Download & Compress Audio</button>
+    </form>
+
+    {% if success %}
+        <h3>Download complete! Your compressed audio is ready:</h3>
+        <a href="{{ url_for('download', filename='compressed_' + file_path.split('\\')[-1]) }}">
+            ⬇️ Download Compressed Audio
+        </a>
+    {% endif %}
+
+    {% if error %}
+        <p style="color: red;">Error: {{ error }}</p>
+    {% endif %}
+
+    {% if warning %}
+        <p style="color: orange;">{{ warning }}</p>
+    {% endif %}
+</body>
+</html>

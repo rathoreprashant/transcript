@@ -1,0 +1,3 @@
+streamlit==1.18.1
+yt-dlp==2025.03.21
+ffmpeg-python==4.5.2
